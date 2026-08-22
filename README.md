@@ -1,6 +1,19 @@
 # Stellara
 
-Startovní web pro projekt **Stellara** — jednoduchý Node/Express server, který servíruje statickou landing page (`public/`). Připravený k nasazení na Render z GitHub repozitáře.
+Startovní web pro **Stellara** — objednávkovou stránku na astrologické konzultace u vás doma. Jednoduchý Node/Express server, který servíruje statickou landing page (`public/`). Připravený k nasazení na Render z GitHub repozitáře.
+
+## ⚠️ Než to spustíš doopravdy
+
+Rezervační formulář teď funguje jen naoko (JavaScript v prohlížeči) — po odeslání zobrazí poděkování, ale **objednávka nikam nechodí**. Než web nasadíš pro skutečné zákazníky, potřebuješ formulář napojit na něco, co objednávky doručí (např. na e-mail). Nejrychlejší bezplatná varianta bez psaní vlastního backendu je [Formspree](https://formspree.io):
+
+1. Založ si účet na formspree.io a vytvoř formulář — dostaneš URL jako `https://formspree.io/f/xxxxxxx`.
+2. V `public/index.html` najdi `<form class="booking-form" id="bookingForm">` a přidej atributy:
+   ```html
+   <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xxxxxxx" method="POST">
+   ```
+3. V `public/js/main.js` smaž `e.preventDefault();` v sekci „Booking form", ať se formulář opravdu odešle.
+
+Až to bude fungovat, doplň v `index.html` reálné jméno, město a kontakt (jsou tam označené `[Jméno]`, `[Město]`, `[telefon / e-mail]`) a případně uprav ceny konzultací.
 
 ## Struktura
 

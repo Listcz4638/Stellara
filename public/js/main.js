@@ -110,17 +110,17 @@
   start_();
 })();
 
-// ---- Waitlist form (front-end only placeholder) ----
+// ---- Booking form (front-end only placeholder — viz README pro napojení e-mailu) ----
 (function () {
-  const form = document.getElementById('waitlistForm');
+  const form = document.getElementById('bookingForm');
   const note = document.getElementById('formNote');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = form.email.value.trim();
-    if (!email) return;
-    note.textContent = `Díky! Ozveme se na ${email}, jakmile bude mapa připravená.`;
+    const jmeno = form.jmeno.value.trim();
+    if (!jmeno) return;
+    note.textContent = `Díky, ${jmeno}! Objednávku jsme zaznamenali a ozveme se do dvou pracovních dnů.`;
     form.reset();
   });
 })();
