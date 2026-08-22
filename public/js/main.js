@@ -1,3 +1,28 @@
+// ---- Mobile nav toggle ----
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileNav');
+  if (!toggle || !menu) return;
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // close after tapping a link, and when resizing back to desktop width
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) closeMenu();
+  });
+})();
+
 // ---- Hero constellation: Pleiades (M45), approximate real relative positions ----
 (function () {
   const canvas = document.getElementById('constellationCanvas');
