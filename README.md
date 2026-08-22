@@ -4,14 +4,15 @@ Startovní web pro **Stellara** — objednávkovou stránku na astrologické kon
 
 ## ⚠️ Než to spustíš doopravdy
 
-Rezervační formulář teď funguje jen naoko (JavaScript v prohlížeči) — po odeslání zobrazí poděkování, ale **objednávka nikam nechodí**. Než web nasadíš pro skutečné zákazníky, potřebuješ formulář napojit na něco, co objednávky doručí (např. na e-mail). Nejrychlejší bezplatná varianta bez psaní vlastního backendu je [Formspree](https://formspree.io):
+Rezervační formulář je připravený posílat objednávky přes [Formspree](https://formspree.io) (zdarma, bez nutnosti psát vlastní backend) — stačí doplnit jedno místo:
 
-1. Založ si účet na formspree.io a vytvoř formulář — dostaneš URL jako `https://formspree.io/f/xxxxxxx`.
-2. V `public/index.html` najdi `<form class="booking-form" id="bookingForm">` a přidej atributy:
-   ```html
-   <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xxxxxxx" method="POST">
-   ```
-3. V `public/js/main.js` smaž `e.preventDefault();` v sekci „Booking form", ať se formulář opravdu odešle.
+1. Založ si účet na formspree.io, vytvoř nový formulář a zkopíruj si jeho URL (tvar `https://formspree.io/f/xxxxxxxx`).
+2. V `public/index.html` najdi řádek `<form class="booking-form" id="bookingForm" action="https://formspree.io/f/TVOJE_ID" ...>` a `TVOJE_ID` nahraď skutečným ID z Formspree.
+3. Ulož, commitni a pushni na GitHub — Render web automaticky znovu nasadí.
+4. Po prvním testovacím odeslání ti Formspree pošle potvrzovací e-mail — musíš ho potvrdit, jinak další zprávy zablokuje.
+5. Zkus objednávku fakt odeslat a ověř, že ti e-mail s objednávkou dorazí.
+
+Formulář teď posílá data přes `fetch` (bez přesměrování na Formspree) — po odeslání se rovnou zobrazí poděkování na stránce.
 
 Až to bude fungovat, doplň v `index.html` reálné jméno, město a kontakt (jsou tam označené `[Jméno]`, `[Město]`, `[telefon / e-mail]`) a případně uprav ceny konzultací.
 

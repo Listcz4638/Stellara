@@ -110,17 +110,42 @@
   start_();
 })();
 
-// ---- Booking form (front-end only placeholder — viz README pro napojení e-mailu) ----
+// ---- Booking form: odešle data na Formspree (viz README, jak nastavit endpoint) ----
 (function () {
   const form = document.getElementById('bookingForm');
   const note = document.getElementById('formNote');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const defaultNote = note.textContent;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const jmeno = form.jmeno.value.trim();
     if (!jmeno) return;
-    note.textContent = `Díky, ${jmeno}! Objednávku jsme zaznamenali a ozveme se do dvou pracovních dnů.`;
-    form.reset();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Odesílám…';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        note.textContent = `Díky, ${jmeno}! Objednávku jsme zaznamenali a ozveme se do dvou pracovních dnů.`;
+        form.reset();
+      } else {
+        note.textContent = 'Něco se nepovedlo. Zkuste to prosím znovu, nebo nám napište přímo na e-mail.';
+      }
+    } catch (err) {
+      note.textContent = 'Nepodařilo se odeslat — zkontrolujte připojení a zkuste to znovu.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Odeslat objednávku';
+      setTimeout(() => { note.textContent = defaultNote; }, 8000);
+    }
   });
 })();
