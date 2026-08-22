@@ -1,0 +1,31 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stellara – značka">
+  <circle cx="32" cy="32" r="29" fill="#0a0d1c"/>
+
+  <!-- outer ring, evokes a horoscope wheel -->
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#8b7fd6" stroke-opacity="0.4" stroke-width="1"/>
+
+  <!-- twelve tick marks around the ring -->
+  <g stroke="#f4f2eb" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round">
+    <line x1="32" y1="7"  x2="32" y2="11"/>
+    <line x1="43.5" y1="10.1" x2="41.5" y2="13.6"/>
+    <line x1="52.4" y1="18.5" x2="48.9" y2="20.5"/>
+    <line x1="56" y1="30" x2="52" y2="30"/>
+    <line x1="52.4" y1="41.5" x2="48.9" y2="39.5"/>
+    <line x1="43.5" y1="49.9" x2="41.5" y2="46.4"/>
+    <line x1="32" y1="53" x2="32" y2="49"/>
+    <line x1="20.5" y1="49.9" x2="22.5" y2="46.4"/>
+    <line x1="11.6" y1="41.5" x2="15.1" y2="39.5"/>
+    <line x1="8" y1="30" x2="12" y2="30"/>
+    <line x1="11.6" y1="18.5" x2="15.1" y2="20.5"/>
+    <line x1="20.5" y1="10.1" x2="22.5" y2="13.6"/>
+  </g>
+
+  <!-- accent tick at 12 o'clock -->
+  <line x1="32" y1="6" x2="32" y2="12" stroke="#d4a657" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- companion star -->
+  <circle cx="45" cy="19" r="1.8" fill="#a89ee5"/>
+
+  <!-- central four-point sparkle -->
+  <path d="M32,17 Q34,30 47,32 Q34,34 32,47 Q30,34 17,32 Q30,30 32,17 Z" fill="#d4a657"/>
+</svg>

@@ -114,8 +114,9 @@ a { color: inherit; }
   gap: 8px;
 }
 
-.brand-mark { color: var(--gold-400); }
-.brand-small { font-size: 1rem; }
+.brand-logo { height: 34px; width: auto; display: block; }
+.brand-mark-icon { height: 22px; width: 22px; display: block; }
+.brand-small { display: inline-flex; align-items: center; gap: 8px; }
 
 .topnav {
   display: flex;
