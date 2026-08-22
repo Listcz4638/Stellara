@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellara — mapa oblohy, kterou si pamatujete</title>
+<meta name="description" content="Stellara je průvodce noční oblohou. Najděte souhvězdí, sledujte planety a ukládejte si vlastní hvězdné mapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sky-bg" id="skyBg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">✶</span> Stellara
+    </a>
+    <nav class="topnav" aria-label="Hlavní navigace">
+      <a href="#mapa">Mapa oblohy</a>
+      <a href="#jak-to-funguje">Jak to funguje</a>
+      <a href="#katalog">Katalog</a>
+    </nav>
+    <a href="#pripojit" class="btn btn-ghost">Připojit se</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">RA 05h 34m · DEC +22° 01′ — Býk, souhvězdí Plejády</p>
+      <h1 class="hero-title">
+        Obloha má<br>
+        <em>svůj vlastní<br>rukopis.</em>
+      </h1>
+      <p class="hero-sub">
+        Stellara propojuje body na noční obloze do souhvězdí, která znáte — a ukazuje ta, která jste ještě nenašli. Namiřte telefon vzhůru, nebo si prohlédněte mapu z gauče.
+      </p>
+      <div class="hero-actions">
+        <a href="#pripojit" class="btn btn-primary">Otevřít mapu oblohy</a>
+        <a href="#jak-to-funguje" class="btn btn-text">Jak to funguje ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-chart">
+      <canvas id="constellationCanvas" aria-label="Animovaná mapa souhvězdí Býk s Plejádami" role="img"></canvas>
+      <div class="chart-caption">
+        <span class="chart-caption-label">Živě vykresleno</span>
+        <span class="chart-caption-value">M45 · Plejády</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip wrap">
+    <div class="strip-item">
+      <span class="strip-num">88</span>
+      <span class="strip-label">oficiálních souhvězdí v katalogu</span>
+    </div>
+    <div class="strip-item">
+      <span class="strip-num">9 110</span>
+      <span class="strip-label">hvězd viditelných pouhým okem</span>
+    </div>
+    <div class="strip-item">
+      <span class="strip-num">1′</span>
+      <span class="strip-label">přesnost polohy v reálném čase</span>
+    </div>
+  </section>
+
+  <section class="feature-band" id="jak-to-funguje">
+    <div class="wrap">
+      <p class="section-eyebrow">Jak to funguje</p>
+      <h2 class="section-title">Tři kroky od tmy k orientaci</h2>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-coord">51.5° N</span>
+          <h3>Zadejte polohu</h3>
+          <p>Stellara si podle vaší zeměpisné šířky a času spočítá, co přesně nad vámi právě vychází a co už zapadlo za obzor.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-coord">18:42 SEČ</span>
+          <h3>Namiřte a sledujte</h3>
+          <p>Nakloňte telefon k obloze a mapa se otáčí s vámi — hvězdy, planety i dráhy družic v reálném čase.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-coord">★ uloženo</span>
+          <h3>Ukládejte si nálezy</h3>
+          <p>Každé nalezené souhvězdí nebo úkaz si uložíte do osobního deníku oblohy s datem, časem a poznámkou.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog wrap" id="katalog">
+    <p class="section-eyebrow">Katalog</p>
+    <h2 class="section-title">Vybraná souhvězdí týdne</h2>
+
+    <div class="catalog-list">
+      <div class="catalog-row">
+        <span class="catalog-name">Orion</span>
+        <span class="catalog-code">ORI</span>
+        <span class="catalog-desc">Nejznámější zimní souhvězdí, tři hvězdy pásu ukazují na Siriuse.</span>
+        <span class="catalog-mag">m 0.1</span>
+      </div>
+      <div class="catalog-row">
+        <span class="catalog-name">Kassiopeia</span>
+        <span class="catalog-code">CAS</span>
+        <span class="catalog-desc">Tvar písmene W, circumpolární — nikdy nezapadá pod obzor.</span>
+        <span class="catalog-mag">m 2.2</span>
+      </div>
+      <div class="catalog-row">
+        <span class="catalog-name">Velký vůz</span>
+        <span class="catalog-code">UMA</span>
+        <span class="catalog-desc">Asterismus Velké medvědice, ukazuje cestu k Polárce.</span>
+        <span class="catalog-mag">m 1.8</span>
+      </div>
+      <div class="catalog-row">
+        <span class="catalog-name">Labuť</span>
+        <span class="catalog-code">CYG</span>
+        <span class="catalog-desc">Letí podél Mléčné dráhy, hlavní hvězda Deneb září z dálky 2600 ly.</span>
+        <span class="catalog-mag">m 1.3</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="pripojit">
+    <div class="wrap cta-inner">
+      <h2 class="section-title cta-title">Vaše obloha na vás čeká.</h2>
+      <p class="cta-sub">Připojte se k testovací verzi a jako první uvidíte novou mapu oblohy.</p>
+      <form class="cta-form" id="waitlistForm">
+        <label for="email" class="sr-only">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+        <button type="submit" class="btn btn-primary">Přidat se na seznam</button>
+      </form>
+      <p class="cta-note" id="formNote">Bez spamu. Ozveme se, až bude mapa připravená k vyzkoušení.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="brand brand-small"><span class="brand-mark">✶</span> Stellara</span>
+    <span class="footer-copy">© 2026 Stellara. Souřadnice nad hlavou se mění každou noc.</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
