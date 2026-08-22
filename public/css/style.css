@@ -497,6 +497,13 @@ a { color: inherit; }
   outline: 2px solid var(--gold-300);
   outline-offset: 2px;
 }
+
+/* the dropdown list itself is rendered by the OS/browser outside our dark
+   theme (white background by default) — force readable dark text on it */
+.booking-field select option {
+  color: #14182b;
+  background: #f4f2eb;
+}
 .booking-form .btn { align-self: flex-start; margin-top: var(--space-1); }
 
 /* cta */
